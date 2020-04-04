@@ -216,4 +216,3 @@ hosts 配置修改示例：
 ```bash
 bash ./deploy.sh
 ```
-# elk-ansible
