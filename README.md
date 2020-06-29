@@ -43,8 +43,8 @@ yum install ansible  # version >= 2.6
 
 ```bash
 cd /opt
-wget https://urc-elk.oss-cn-shanghai.aliyuncs.com/release/elk-ansible.tar.gz
-tar -zxvf elk-ansible.tar.gz
+wget https://github.com/chinaboy007/elk-ansible/archive/master.zip
+tar -zxvf master.tar.gz
 ```
 
 
