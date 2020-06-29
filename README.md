@@ -39,7 +39,6 @@ yum install ansible  # version >= 2.6
 
 #### 2. 下载并解压 elk-ansible 程序包
 
-程序包下载地址 https://urc-elk.oss-cn-shanghai.aliyuncs.com/release/elk-ansible.tar.gz
 
 ```bash
 cd /opt
