@@ -1,0 +1,65 @@
+[all_nodes]
+192.168.10.73        # 通过sshkey免密登陆
+192.168.10.74
+192.168.10.75
+
+[all_nodes:vars]
+install_root_path=/usr/local
+
+############################### ElasticSearch
+[elasticsearch]
+192.168.10.73
+192.168.10.74
+192.168.10.75
+
+[elasticsearch:vars]
+elasticsearch_version=7.2.0
+data_path=/var/lib/elasticsearch
+cluster_name=ELKCluster
+
+############################### Logstash
+[logstash]
+192.168.10.73
+192.168.10.74
+192.168.10.75
+
+[logstash:vars]
+logstash_version=7.2.0
+pipeline_workers=5
+pipeline_batch_size=10
+kafka_group_id=logstash_kafka                       # 作为kafka的消费者的group-id
+kafka_topic=elk-pipeline-topic                      # kafka中的对应的topic
+
+
+############################### Kafka
+[kafka]                                             # 不配置任何机器，即不带kafka场景
+192.168.10.75
+
+[kafka:vars]
+kafka_version=2.12-2.2.0
+
+[kafka_zookeeper]
+192.168.10.75
+
+[kafka_zookeeper:vars]
+zookeeper_version=3.4.13
+
+
+############################### filebeat
+[filebeat]
+192.168.10.73
+192.168.10.74
+192.168.10.75
+
+[filebeat:vars]
+filebeat_version=7.2.0
+kafka_topic=elk-pipeline-topic                      # kafka中的对应的topic
+filebeat_log_path=/var/log/*.log                    # 监视的日志
+
+
+############################### kibana
+[kibana]
+192.168.10.75
+
+[kibana:vars]
+kibana_version=7.2.0
